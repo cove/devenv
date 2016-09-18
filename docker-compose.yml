@@ -1,0 +1,36 @@
+version: '2'
+services:
+  client:
+    build:
+     context: ../client
+     dockerfile: Dockerfile.devenv
+    ports:
+     - '3000'
+    volumes:
+     - ../client:/client
+     - ../h:/h
+    links:
+     - h
+  h:
+    build:
+     context: ../h
+     dockerfile: Dockerfile.devenv
+    ports:
+     - '5000'
+    links:
+     - postgres
+     - elasticsearch
+     - rabbitmq
+     - redis
+    volumes:
+     - ../h:/h
+     - ../client:/client
+  postgres:
+    image: postgres
+  elasticsearch:
+    image: elasticsearch
+  rabbitmq:
+    image: rabbitmq
+  redis:
+    image: redis
+

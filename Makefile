@@ -5,6 +5,7 @@ all:
 	@echo "rebuild - rebuild devenv containers"
 	@echo "tests   - run tests in projects"
 	@echo "link    - link client and server"
+	@echo "clean   - clean up old dev docker images"
 
 down:
 	@docker-compose down

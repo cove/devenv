@@ -22,6 +22,7 @@ services:
      - PGHOST=postgres
      - PGUSER=postgres
      - PGDATABASE=htest
+     - TEST_DATABASE_URL=postgresql://postgres@postgres/htest
      - ELASTICSEARCH_HOST=elasticsearch
      - REDIS_HOST=redis
      - AMPQ_HOST=rabbitmq

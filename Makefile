@@ -16,6 +16,7 @@ rebuild:
 tests:
 	@docker exec -t devenv_h_1 /bin/sh -c "make test"
 	@docker exec -t devenv_client_1 /bin/sh -c "make test"
+	@docker exec -t devenv_browser-extension_1 /bin/sh -c "make test"
 link:
 	@docker exec -t devenv_client_1 /bin/sh -c "npm link"
 	@docker exec -t devenv_h_1 /bin/sh -c "npm link hypothesis"

@@ -1,4 +1,6 @@
 
+all: help
+
 .PHONY: down
 down:
 	@docker-compose down

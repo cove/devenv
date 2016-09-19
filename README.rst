@@ -16,7 +16,7 @@ Hypothesis
 .. image:: https://img.shields.io/badge/python-2.7-blue.svg
    :alt: Python version badge
 
-This is the top level `Docker Compose <https://docs.docker.com/compose/>` module for setting up development environments.
+This is the top level `Docker Compose`_ module for setting up development environments.
 
 About
 -----
@@ -60,6 +60,7 @@ By participating in this project you agree to abide by its terms.
 .. _development mailing list: https://groups.google.com/a/list.hypothes.is/forum/#!forum/dev
 .. _Contributor's guide: https://h.readthedocs.io/en/latest/developing/
 .. _New Contributor Friendly: https://github.com/hypothesis/h/issues?q=is%3Aopen+is%3Aissue+label%3A%22New+Contributor+Friendly%22
+.. _Docker Compose: https://docs.docker.com/compose/
 
 
 License

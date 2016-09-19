@@ -9,5 +9,5 @@ down:
 up: 
 	docker-compose up --abort-on-container-exit
 rebuild:
-	docker-compose build --force-rm --pull
+	docker-compose build --pull
 

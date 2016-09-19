@@ -10,7 +10,7 @@ all:
 down:
 	@docker-compose down
 up: 
-	@docker-compose up --abort-on-container-exit
+	@docker-compose up
 rebuild:
 	@docker-compose build --pull
 tests:

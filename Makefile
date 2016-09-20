@@ -1,4 +1,6 @@
 
+DOCKER_RUN := docker run --network=devenv_default --env-file devenv.env
+
 all: help
 
 .PHONY: down
@@ -18,10 +20,7 @@ tests: test-h test-client test-browser-extension
 
 .PHONY: link
 link:
-	@cd ../client && \
-          docker run --volume `pwd`:/client -t devenv_client /bin/sh -c "npm link"
-	@cd ../h && \
-          docker run --volume `pwd`:/h -t devenv_h /bin/sh -c "npm link hypothesis"
+	@$(DOCKER_RUN) --volume `pwd`/../client:/client -t devenv_client /bin/sh -c "npm link"
 
 .PHONY: clean
 clean:
@@ -30,16 +29,13 @@ clean:
 ################################################################################
 
 test-h::
-	@cd ../h && \
-          docker run -t --volume `pwd`:/h  devenv_h /bin/sh -c "make test"
+	@$(DOCKER_RUN) -t --volume `pwd`/../h:/h devenv_h /bin/sh -c "make test"
 
 test-client::
-	@cd ../browser-extension && \
-          docker run -t --volume `pwd`:/client  devenv_client /bin/sh -c "make test"
+	@$(DOCKER_RUN) -t --volume `pwd`/../client:/client devenv_client /bin/sh -c "make test"
 
 test-browser-extension::
-	@cd ../browser-extension && \
-          docker run -t --volume `pwd`:/browser-extension devenv_browser-extension /bin/sh -c "make test"
+	@$(DOCKER_RUN) -t --volume `pwd`/../browser-extension:/browser-extension devenv_browser-extension /bin/sh -c "make test"
 
 # Self documenting Makefile
 .PHONY: help

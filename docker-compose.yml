@@ -38,7 +38,7 @@ services:
      links:
       - postgres
   postgres:
-    image: postgres:9.5
+    image: postgres:9.6
     ports:
      - '5432'
   elasticsearch:
@@ -47,11 +47,11 @@ services:
      - '9200'
      - '9300'
   rabbitmq:
-    image: rabbitmq:3-management
+    image: rabbitmq:3.6.5-management
     ports:
      - '5672'
      - '15672'
   redis:
-    image: redis
+    image: redis:3.2.3
     ports:
      - 6379

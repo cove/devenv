@@ -18,8 +18,10 @@ tests: test-h test-client test-browser-extension
 
 .PHONY: link
 link:
-	@docker exec -t devenv_client_1 /bin/sh -c "npm link"
-	@docker exec -t devenv_h_1 /bin/sh -c "npm link hypothesis"
+	@cd ../client && \
+          docker run --volume `pwd`:/client -t devenv_client /bin/sh -c "npm link"
+	@cd ../h && \
+          docker run --volume `pwd`:/h -t devenv_h /bin/sh -c "npm link hypothesis"
 
 .PHONY: clean
 clean:
@@ -28,10 +30,12 @@ clean:
 ################################################################################
 
 test-h::
-	@docker exec -t devenv_h_1 /bin/sh -c "make test"
+	@cd ../h && \
+          docker run -t --volume `pwd`:/h  devenv_h /bin/sh -c "make test"
 
 test-client::
-	@docker exec -t devenv_client_1 /bin/sh -c "make test"
+	@cd ../browser-extension && \
+          docker run -t --volume `pwd`:/client  devenv_client /bin/sh -c "make test"
 
 test-browser-extension::
 	@cd ../browser-extension && \

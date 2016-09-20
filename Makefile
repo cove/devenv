@@ -25,7 +25,7 @@ link:
 
 .PHONY: unlink
 unlink:
-	@$(DOCKER_RUN) --volume `pwd`/../h:/h -t devenv_h /bin/sh -c "npm unlink hypothesis; make clean"
+	@$(DOCKER_RUN) --volume `pwd`/../h:/h -t devenv_h /bin/sh -c "npm unlink -g hypothesis; make clean"
 
 .PHONY: clean
 clean:
